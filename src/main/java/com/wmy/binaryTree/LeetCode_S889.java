@@ -21,18 +21,20 @@ import java.util.Map;
  */
 
 /*
- * 确定中序遍历左孩子范围是 inStart ~ inRootIndex - 1
- * 确定中序遍历右孩子范围是 inRootIndex + 1 ~ inEnd
+ * 确定根节点的值是 preorder[preStart]
+ * 明显发现左树节点个数无法确定，但前序遍历第一个pop出的节点的下一个节点是左孩子，则前序遍历的左节点= preorder[preStart + 1]
+ * 确定前序遍历左孩子范围是 preStart + 1 ~ preStart + x
  * 确定后序遍历左孩子范围是 postStart ~ postStart + x - 1
- * 确定后序遍历右孩子范围是 postStart + x ~ postRootIndex - 1
+ * 确定前序遍历右孩子范围是 preStart + x + 1 ~ preEnd
+ * 确定后序遍历右孩子范围是 postStart + x ~ postEnd - 1
  * 状态方程确认一半了
- * 左树状态方程是 build(inorder, inStart, inRootIndex - 1, postorder, postStart, postStart + x - 1)
- * 右树树状态方程是 build(inorder, inRootIndex + 1, inEnd, postorder, postStart + x, postRootIndex - 1)
- * x如何去确认？
- * 假设左树节点右x个，那么在中序遍历中，x可得出，x = inRootIndex - inStart
+ * 左树状态方程是 build(preorder,  preStart + 1, preStart + x, postorder, postStart, postStart + x - 1)
+ * 右树树状态方程是 build(inorder, preStart + x + 1, preEnd, postorder, postStart + x, postEnd - 1)
+ * x如何去确认?
+ * 假设后序遍历的左树节点右x个，那么在后序遍历中，根据 前序遍历的左节点= preorder[preStart + 1] 易得到 后序中的 postLeftIndex 则 x = postLeftIndex - postStart + 1
  * 所以
- * 左树状态方程是 build(inorder, inStart, inRootIndex - 1, postorder, postStart, postStart + inRootIndex - inStart - 1)
- * 右树树状态方程是 build(inorder, inRootIndex + 1, inEnd, postorder, postStart + inRootIndex - inStart, postRootIndex - 1)
+ * 左树状态方程是 build(preorder, preStart + 1, preStart + leftSize, postorder, postStart, postLeftIndex)
+ * 右树树状态方程是 build(preorder, preStart + leftSize + 1, preEnd, postorder, postLeftIndex + 1, postEnd - 1)
  */
 public class LeetCode_S889 {
     Map<Integer, Integer> map = new HashMap<>();
