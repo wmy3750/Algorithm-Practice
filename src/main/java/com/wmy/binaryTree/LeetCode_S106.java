@@ -19,8 +19,8 @@ import java.util.Map;
  * 状态方程确认一半了
  * 左树状态方程是 build(inorder, inStart, inRootIndex - 1, postorder, postStart, postStart + x - 1)
  * 右树树状态方程是 build(inorder, inRootIndex + 1, inEnd, postorder, postStart + x, postEnd - 1)
- * x如何去确认？
- * 假设左树节点右x个，那么在中序遍历中，x可得出，x = inRootIndex - inStart
+ * x如何去确认?
+ * 假设中序遍历的左树节点右x个，那么在中序遍历中，x可得出，x = inRootIndex - inStart
  * 所以
  * 左树状态方程是 build(inorder, inStart, inRootIndex - 1, postorder, postStart, postStart + inRootIndex - inStart - 1)
  * 右树树状态方程是 build(inorder, inRootIndex + 1, inEnd, postorder, postStart + inRootIndex - inStart, postRootIndex - 1)
