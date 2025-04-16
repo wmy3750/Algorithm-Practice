@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="GitLabDefaultAccount">
-    <option name="defaultAccountId" value="1d7165b3-a8db-4e2f-83d2-5960efdcb6cc" />
-  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
