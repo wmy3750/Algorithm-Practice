@@ -21,16 +21,16 @@ import cn.hutool.json.JSONUtil;
  */
 
 /*
-        // 确定前序遍历左孩子范围是 preRootIndex + 1 ~ preRootIndex + x
-        // 确定前序遍历右孩子范围是 preRootIndex + x + 1 ~ preEnd
-        // 确定中序遍历左孩子范围是 inStart ~ inRootIndex - 1
-        // 确定中序遍历右孩子范围是 inRootIndex + 1 ~ inEnd
-        // 状态方程确认一半了，build(preorder, preRootIndex + 1, ?, inorder, ?, inEnd)
-        // x如何去确认？
-        // 假设左树节点右x个，那么在中序遍历中，x可得出，x = inRootIndex - inStart
-        // 所以，
-        // 左树状态方程是 build(preorder, preRootIndex + 1, preRootIndex + i - inRootIndex, inorder, inRootIndex, i - 1)
-        // 右树树状态方程是 build(preorder, preRootIndex + i - inRootIndex + 1, preEnd, inorder, inRootIndex + 1, inEnd)
+ * 确定前序遍历左孩子范围是 preRootIndex + 1 ~ preRootIndex + x
+ * 确定中序遍历左孩子范围是 inStart ~ inRootIndex - 1
+ * 确定前序遍历右孩子范围是 preRootIndex + x + 1 ~ preEnd
+ * 确定中序遍历右孩子范围是 inRootIndex + 1 ~ inEnd
+ * 状态方程确认一半了，build(preorder, preRootIndex + 1, ?, inorder, ?, inEnd)
+ * x如何去确认？
+ * 假设中序遍历的左树节点右x个，那么在中序遍历中，x可得出，x = inRootIndex - inStart
+ * 所以
+ * 左树状态方程是 build(preorder, preRootIndex + 1, preRootIndex + i - inRootIndex, inorder, inRootIndex, i - 1)
+ * 右树树状态方程是 build(preorder, preRootIndex + i - inRootIndex + 1, preEnd, inorder, inRootIndex + 1, inEnd)
  */
 public class LeetCode_S105 {
 
