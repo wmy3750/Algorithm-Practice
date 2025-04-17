@@ -84,4 +84,35 @@ public class TreeNodeOperate {
         }
         return sb.toString();
     }
+
+    public TreeNode createTreeByBFS(Integer[] array) {
+        if (array == null || array.length == 0) {
+            return null;
+        }
+
+        TreeNode root = new TreeNode(array[0]);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        int index = 1;
+        while (index < array.length) {
+            TreeNode node = queue.poll();
+
+            // 左子节点
+            if (index < array.length && array[index] != null) {
+                node.left = new TreeNode(array[index]);
+                queue.offer(node.left);
+            }
+            index++;
+
+            // 右子节点
+            if (index < array.length && array[index] != null) {
+                node.right = new TreeNode(array[index]);
+                queue.offer(node.right);
+            }
+            index++;
+        }
+
+        return root;
+    }
 }
