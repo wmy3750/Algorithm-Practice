@@ -8,6 +8,11 @@ target/
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
+.idea/git_toolbox_prj.xml
+.idea/GitLink.xml
+.idea/labuladong/editor.xml
+.idea/labuladong/statistics.xml
+.idea/sonarlint/issuestore/index.pb
 *.iws
 *.iml
 *.ipr
